@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components'
 
+const PageWrapper = styled.div`
+ background-color: rgba(238, 245, 255, 1);
+ width: 100%;
+ height: 100vh;
+ display: flex;
+ 
+`
+const Container = styled.div`
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PageWrapper>
+      <Container>
+        hej my to do lsist app
+      </Container>
+    </PageWrapper>
   );
 }
 
