@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import styled from 'styled-components'
 
 // components
 
 import AddToDo from './components/AddToDo'
-import ToDos from './components/ToDos'
+import ShowToDos from './components/ShowToDos'
+
+// model with interface
+
+import { ToDo } from './utils/model'
 
 const PageWrapper = styled.div`
   background-color: rgba(238, 245, 255, 1);
@@ -28,13 +32,30 @@ const ToDoListContainer = styled.div`
   border-radius: 54px;
   width: calc(100% - 48px);
 `
-function App() {
+const App: React.FC = () => {
+  const [toDo, setToDo] = useState<string>('')
+  const [allToDos, setAllToDos] = useState<ToDo[]>([])
+
+  const handleAddToDos = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (toDo) {
+      setAllToDos([...allToDos, { id: Date.now(), todo: toDo, isDone: false }])
+      // empty input after submit
+      setToDo('')
+    }
+  }
+
   return (
     <PageWrapper>
       <Container>
+        <h1>My Todo App</h1>
         <ToDoListContainer>
-          <AddToDo></AddToDo>
-          <ToDos></ToDos>
+          <AddToDo
+            toDo={toDo}
+            setToDo={setToDo}
+            handleAddToDos={handleAddToDos}
+          ></AddToDo>
+          <ShowToDos allToDos={allToDos} setAllToDos={setAllToDos}></ShowToDos>
         </ToDoListContainer>
       </Container>
     </PageWrapper>
