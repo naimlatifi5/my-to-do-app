@@ -4,8 +4,7 @@ import { GrAdd } from 'react-icons/gr'
 
 const Input = styled.input`
   padding: 16px;
-  width: 100%;
-
+  width: calc(100% - 36px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,7 +43,7 @@ const AddToDo: React.FC<Props> = ({ toDo, setToDo, handleAddToDos }) => {
           ref={inputRef}
           value={toDo}
           onChange={(e) => setToDo(e.target.value)}
-          type="search"
+          type="text"
           placeholder="Add an item..."
         />
         <IconWrapper onClick={handleAddToDos}>

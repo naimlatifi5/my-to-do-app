@@ -45,7 +45,7 @@ const ShowToDos: React.FC<Props> = ({ allToDos, setAllToDos }) => {
         )}
       </List>
       {completedToDos.length ? (
-        <h4>COMPLETED {completedToDos.length}</h4>
+        <h4>COMPLETED ({completedToDos.length})</h4>
       ) : null}
       <List>
         {completedToDos.map((item) => {

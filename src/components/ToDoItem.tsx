@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ToDo } from '../utils/model'
 import { AiFillDelete } from 'react-icons/ai'
 import { FiEdit } from 'react-icons/fi'
@@ -30,6 +30,9 @@ const Circle = styled.span`
     height: 25px;
   }
 `
+const EditInput = styled.input`
+  width: 100px;
+`
 
 const IconWrapper = styled.span`
   margin-right: 6px;
@@ -43,6 +46,9 @@ const IconWrapper = styled.span`
 `
 
 const ToDoItem: React.FC<Props> = ({ item, allToDos, setAllToDos }) => {
+  const [isEditing, setIsEditing] = useState<boolean>(false)
+  const [edit, setEditToDo] = useState<string>(item.todo)
+
   const handleCompleted = (id: number) => {
     let completedToDos = allToDos.map((item) =>
       item.id === id ? { ...item, isDone: !item.isDone } : item,
@@ -54,6 +60,25 @@ const ToDoItem: React.FC<Props> = ({ item, allToDos, setAllToDos }) => {
     let deletedClickedTodo = allToDos.filter((item) => item.id !== id)
     setAllToDos(deletedClickedTodo)
   }
+
+  const editToDos = (id: number) => {
+    console.log('id', id)
+    setIsEditing(true)
+  }
+
+  const handleOnBlur = () => {
+    setIsEditing(false)
+  }
+  const handleEditSubmit = (e: React.FormEvent, id: number) => {
+    e.preventDefault()
+    // map through all toDos and if we find the onw with the id selected replace the toDo with new value
+
+    let editTodos = allToDos.map((item) =>
+      item.id === id ? { ...item, todo: edit } : item,
+    )
+    setAllToDos(editTodos)
+    setIsEditing(false)
+  }
   return (
     <>
       <li>
@@ -62,15 +87,31 @@ const ToDoItem: React.FC<Props> = ({ item, allToDos, setAllToDos }) => {
             {item.isDone ? <BsCheck2 /> : null}
           </Circle>
 
-          <span>{item.todo}</span>
+          <span>
+            {!item.isDone && isEditing ? (
+              <form onSubmit={(e) => handleEditSubmit(e, item.id)}>
+                <EditInput
+                  value={edit}
+                  onChange={(e) => setEditToDo(e.target.value)}
+                  onBlur={handleOnBlur}
+                />
+              </form>
+            ) : (
+              item.todo
+            )}
+          </span>
         </ToDoWrapper>
         <span>
-          <IconWrapper>
-            <FiEdit />
-          </IconWrapper>
-          <IconWrapper>
-            <AiFillDelete onClick={() => deleteToDos(item.id)} />
-          </IconWrapper>
+          {!item.isDone ? (
+            <>
+              <IconWrapper>
+                <FiEdit onClick={() => editToDos(item.id)} />
+              </IconWrapper>
+              <IconWrapper>
+                <AiFillDelete onClick={() => deleteToDos(item.id)} />
+              </IconWrapper>
+            </>
+          ) : null}
         </span>
       </li>
     </>
