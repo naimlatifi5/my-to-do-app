@@ -11,7 +11,7 @@ const Input = styled.input`
   align-items: center;
   margin-bottom: 18px;
   border-radius: 30px;
-  border-color: #3b3b71;
+  border: 1px solid #3b3b71;
 `
 
 const FormWrapper = styled.form`
