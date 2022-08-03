@@ -13,10 +13,20 @@ const List = styled.ul`
   list-style: none;
 
   > li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    em {
+      font-size: 16px;
+    }
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    .todo-item {
+      color: #3b3b71;
+    }
+    .done-item {
+      font-style: italic;
+      color: #8a8aaa;
+    }
   }
 `
 
@@ -40,7 +50,7 @@ const ShowToDos: React.FC<Props> = ({ allToDos, setAllToDos }) => {
           })
         ) : (
           <li>
-            <em>No item added yet...</em>
+            <em>OBS! No item added yet...</em>
           </li>
         )}
       </List>
