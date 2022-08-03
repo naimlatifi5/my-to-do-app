@@ -10,6 +10,8 @@ const Input = styled.input`
   justify-content: center;
   align-items: center;
   margin-bottom: 18px;
+  border-radius: 30px;
+  border-color: #3b3b71;
 `
 
 const FormWrapper = styled.form`
