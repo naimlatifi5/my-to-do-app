@@ -46,4 +46,21 @@ describe('Test suit for ShowToDos component', () => {
     expect(unCompletedToDos).toEqual(fakeTodos)
     expect(unCompletedToDos).toHaveLength(1)
   })
+  it('It should render heading for completed todos and the list with the length', async () => {
+    const mockedCompletedToDos = [
+      { id: 1659648862224, isDone: true, todo: "completed'" },
+    ]
+    render(
+      <ShowToDos allToDos={mockedCompletedToDos} setAllToDos={setAllToDos} />,
+    )
+    const completedToDos = screen
+      .getAllByTestId('item')
+      .map((item) => item.textContent)
+    const fakeTodos = mockedCompletedToDos.map((c) => c.todo)
+    expect(completedToDos).toEqual(fakeTodos)
+    expect(completedToDos).toHaveLength(1)
+    expect(screen.getByTestId('heading-completed')).toHaveTextContent(
+      'COMPLETED (1)',
+    )
+  })
 })
