@@ -38,7 +38,7 @@ const App: React.FC = () => {
 
   const handleAddToDos = (e: React.FormEvent) => {
     e.preventDefault()
-    if (toDo) {
+    if (toDo.length > 0) {
       setAllToDos([{ id: Date.now(), todo: toDo, isDone: false }, ...allToDos])
       // empty input after submit
       setToDo('')
