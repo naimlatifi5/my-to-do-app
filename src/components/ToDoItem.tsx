@@ -118,7 +118,7 @@ const ToDoItem: React.FC<Props> = ({ item, allToDos, setAllToDos }) => {
 
   return (
     <>
-      <li>
+      <li data-testid="item">
         <>
           <Circle onClick={() => handleCompleted(item.id)}>
             {item.isDone ? <BsCheck2 /> : null}

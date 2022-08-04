@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suit for ShowToDos component It should render uncompleted todos in a list as snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="sc-eCYdqJ bwEEBQ"
+  >
+    <li
+      data-testid="item"
+    >
+      <span
+        class="sc-bczRLJ cfrFOm"
+      />
+      <span
+        class="todo-item"
+      >
+        asdf'
+      </span>
+      <span
+        class="sc-dkzDqf kQnhMH"
+      >
+        <span
+          class="sc-hKMtZM gvuFEE"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+            />
+            <path
+              d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+            />
+          </svg>
+        </span>
+        <span
+          class="sc-hKMtZM gvuFEE"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M864 256H736v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zm-200 0H360v-72h304v72z"
+            />
+          </svg>
+        </span>
+      </span>
+    </li>
+  </ul>
+  <ul
+    class="sc-eCYdqJ bwEEBQ"
+  />
+</DocumentFragment>
+`;

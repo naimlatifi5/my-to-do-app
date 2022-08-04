@@ -31,6 +31,7 @@ const List = styled.ul`
 `
 
 const ShowToDos: React.FC<Props> = ({ allToDos, setAllToDos }) => {
+  console.log(allToDos)
   let completedToDos = allToDos.filter((item) => item.isDone === true)
   let notCompletedToDos = allToDos.filter((item) => item.isDone === false)
 
@@ -50,7 +51,7 @@ const ShowToDos: React.FC<Props> = ({ allToDos, setAllToDos }) => {
           })
         ) : (
           <li>
-            <em>OBS! No item added yet...</em>
+            <em data-testid="no-item">OBS! No item added yet...</em>
           </li>
         )}
       </List>
@@ -61,6 +62,7 @@ const ShowToDos: React.FC<Props> = ({ allToDos, setAllToDos }) => {
         {completedToDos.map((item) => {
           return (
             <ToDoItem
+              data-testid="completed-item"
               key={item.id}
               item={item}
               allToDos={allToDos}
