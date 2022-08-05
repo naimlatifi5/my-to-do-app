@@ -30,7 +30,6 @@ const AddToDo: React.FC<Props> = ({ toDo, setToDo, handleAddToDos }) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleFormSubmit = (e: React.FormEvent) => {
-    console.log(e)
     handleAddToDos(e)
     // blur input after submitting the form
     inputRef.current?.blur()
